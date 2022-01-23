@@ -19,7 +19,7 @@ function Cube(props) {
       <mesh
         {...props}
         ref={ref}
-        scale={clicked ? 1.5 : 1}
+        scale={clicked ? 3.5 : 1}
         onClick={(event) => click(!clicked)}
         onPointerOver={(event) => hover(true)}
         onPointerOut={(event) => hover(false)}
@@ -34,7 +34,7 @@ function Cube(props) {
 function Home(props) {
   return ReactDOM.render(
     <Canvas style={{ backgroundColor: "gray", height: "100vh" }}>
-      <PerspectiveCamera makeDefault position={[0, 0, 10]} />
+      <PerspectiveCamera makeDefault position={[0, 5, 10]} />
       <group position={[0, 0, -10]}>
         <gridHelper args={[100, 100]} />
         <ambientLight />
