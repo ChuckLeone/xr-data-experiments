@@ -30,7 +30,7 @@ function Cube(props) {
 
 function Home(props) {
   return ReactDOM.render(
-    <Canvas style={{ backgroundColor: "black", height: "100vh" }}>
+    <Canvas style={{ backgroundColor: "gray", height: "100vh" }}>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       {data.map((item) => (
