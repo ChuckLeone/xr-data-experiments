@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import Home from "./pages/Home";
 
 function App(props) {

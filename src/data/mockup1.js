@@ -1,403 +1,178 @@
 const data = [
   {
     id: 1,
-    color: "#9bb268",
+    color: "#44315f",
+    height: 48,
   },
   {
     id: 2,
-    color: "#773adf",
+    color: "#2c2908",
+    height: 92,
   },
   {
     id: 3,
-    color: "#6583d8",
+    color: "#5597c6",
+    height: 81,
   },
   {
     id: 4,
-    color: "#08b20c",
+    color: "#824693",
+    height: 50,
   },
   {
     id: 5,
-    color: "#cefa0e",
+    color: "#2c2bea",
+    height: 25,
   },
   {
     id: 6,
-    color: "#28229b",
+    color: "#2891f4",
+    height: 41,
   },
   {
     id: 7,
-    color: "#d85904",
+    color: "#3b89b5",
+    height: 66,
   },
   {
     id: 8,
-    color: "#a36be4",
+    color: "#439117",
+    height: 93,
   },
   {
     id: 9,
-    color: "#53a985",
+    color: "#4a2a88",
+    height: 48,
   },
   {
     id: 10,
-    color: "#091e30",
+    color: "#86b5dd",
+    height: 84,
   },
   {
     id: 11,
-    color: "#b1b13d",
+    color: "#4a9f3c",
+    height: 9,
   },
   {
     id: 12,
-    color: "#1400a0",
+    color: "#61b724",
+    height: 63,
   },
   {
     id: 13,
-    color: "#91fd7e",
+    color: "#093923",
+    height: 68,
   },
   {
     id: 14,
-    color: "#14265d",
+    color: "#81d214",
+    height: 62,
   },
   {
     id: 15,
-    color: "#9d3b4a",
+    color: "#689ebf",
+    height: 63,
   },
   {
     id: 16,
-    color: "#ff3247",
+    color: "#d31ec0",
+    height: 13,
   },
   {
     id: 17,
-    color: "#ba178b",
+    color: "#8f2d5d",
+    height: 89,
   },
   {
     id: 18,
-    color: "#578577",
+    color: "#49daaa",
+    height: 41,
   },
   {
     id: 19,
-    color: "#990604",
+    color: "#c79bfd",
+    height: 82,
   },
   {
     id: 20,
-    color: "#04795c",
+    color: "#92ac5e",
+    height: 14,
   },
   {
     id: 21,
-    color: "#05f227",
+    color: "#2f8cc0",
+    height: 94,
   },
   {
     id: 22,
-    color: "#a9e173",
+    color: "#f0f4a9",
+    height: 11,
   },
   {
     id: 23,
-    color: "#98f9eb",
+    color: "#ecaea6",
+    height: 55,
   },
   {
     id: 24,
-    color: "#3c46cf",
+    color: "#d58eef",
+    height: 66,
   },
   {
     id: 25,
-    color: "#5f6a6a",
+    color: "#4c708b",
+    height: 14,
   },
   {
     id: 26,
-    color: "#855c3a",
+    color: "#b72885",
+    height: 75,
   },
   {
     id: 27,
-    color: "#448f05",
+    color: "#6a1bc9",
+    height: 18,
   },
   {
     id: 28,
-    color: "#62c1b4",
+    color: "#f98d16",
+    height: 88,
   },
   {
     id: 29,
-    color: "#ac7986",
+    color: "#e25e15",
+    height: 44,
   },
   {
     id: 30,
-    color: "#ab6d1d",
+    color: "#5f3b4e",
+    height: 55,
   },
   {
     id: 31,
-    color: "#849551",
+    color: "#3cb10a",
+    height: 72,
   },
   {
     id: 32,
-    color: "#2f8bb8",
+    color: "#72f5dc",
+    height: 34,
   },
   {
     id: 33,
-    color: "#8f6c0d",
+    color: "#3576b1",
+    height: 80,
   },
   {
     id: 34,
-    color: "#6be8e2",
+    color: "#b04a5a",
+    height: 73,
   },
   {
     id: 35,
-    color: "#1e60c5",
-  },
-  {
-    id: 36,
-    color: "#e681df",
-  },
-  {
-    id: 37,
-    color: "#dded35",
-  },
-  {
-    id: 38,
-    color: "#b7a042",
-  },
-  {
-    id: 39,
-    color: "#a98226",
-  },
-  {
-    id: 40,
-    color: "#9e5b35",
-  },
-  {
-    id: 41,
-    color: "#c1a007",
-  },
-  {
-    id: 42,
-    color: "#333bd3",
-  },
-  {
-    id: 43,
-    color: "#06194d",
-  },
-  {
-    id: 44,
-    color: "#dc68eb",
-  },
-  {
-    id: 45,
-    color: "#73d5e9",
-  },
-  {
-    id: 46,
-    color: "#125e2a",
-  },
-  {
-    id: 47,
-    color: "#0d4d20",
-  },
-  {
-    id: 48,
-    color: "#8bf284",
-  },
-  {
-    id: 49,
-    color: "#1a1597",
-  },
-  {
-    id: 50,
-    color: "#6c5ac6",
-  },
-  {
-    id: 51,
-    color: "#61f812",
-  },
-  {
-    id: 52,
-    color: "#946974",
-  },
-  {
-    id: 53,
-    color: "#e42347",
-  },
-  {
-    id: 54,
-    color: "#f299c3",
-  },
-  {
-    id: 55,
-    color: "#b04825",
-  },
-  {
-    id: 56,
-    color: "#00c4a9",
-  },
-  {
-    id: 57,
-    color: "#b16418",
-  },
-  {
-    id: 58,
-    color: "#41b206",
-  },
-  {
-    id: 59,
-    color: "#e57e97",
-  },
-  {
-    id: 60,
-    color: "#eeae58",
-  },
-  {
-    id: 61,
-    color: "#aacac1",
-  },
-  {
-    id: 62,
-    color: "#596e4d",
-  },
-  {
-    id: 63,
-    color: "#c243d2",
-  },
-  {
-    id: 64,
-    color: "#386dca",
-  },
-  {
-    id: 65,
-    color: "#1990e4",
-  },
-  {
-    id: 66,
-    color: "#702bc1",
-  },
-  {
-    id: 67,
-    color: "#37db17",
-  },
-  {
-    id: 68,
-    color: "#801c93",
-  },
-  {
-    id: 69,
-    color: "#dae08e",
-  },
-  {
-    id: 70,
-    color: "#4794e5",
-  },
-  {
-    id: 71,
-    color: "#6c6336",
-  },
-  {
-    id: 72,
-    color: "#ace570",
-  },
-  {
-    id: 73,
-    color: "#e52d4c",
-  },
-  {
-    id: 74,
-    color: "#f12e7c",
-  },
-  {
-    id: 75,
-    color: "#93143f",
-  },
-  {
-    id: 76,
-    color: "#efebb9",
-  },
-  {
-    id: 77,
-    color: "#285a00",
-  },
-  {
-    id: 78,
-    color: "#b8d07f",
-  },
-  {
-    id: 79,
-    color: "#3767f7",
-  },
-  {
-    id: 80,
-    color: "#8d8afe",
-  },
-  {
-    id: 81,
-    color: "#7b9024",
-  },
-  {
-    id: 82,
-    color: "#79ad63",
-  },
-  {
-    id: 83,
-    color: "#33c212",
-  },
-  {
-    id: 84,
-    color: "#ce626c",
-  },
-  {
-    id: 85,
-    color: "#d6569a",
-  },
-  {
-    id: 86,
-    color: "#393226",
-  },
-  {
-    id: 87,
-    color: "#e0e08f",
-  },
-  {
-    id: 88,
-    color: "#9adb9f",
-  },
-  {
-    id: 89,
-    color: "#d81362",
-  },
-  {
-    id: 90,
-    color: "#150d27",
-  },
-  {
-    id: 91,
-    color: "#687711",
-  },
-  {
-    id: 92,
-    color: "#bc16bb",
-  },
-  {
-    id: 93,
-    color: "#b15052",
-  },
-  {
-    id: 94,
-    color: "#e3fc17",
-  },
-  {
-    id: 95,
-    color: "#08d82e",
-  },
-  {
-    id: 96,
-    color: "#059bbd",
-  },
-  {
-    id: 97,
-    color: "#f3774b",
-  },
-  {
-    id: 98,
-    color: "#01f2c7",
-  },
-  {
-    id: 99,
-    color: "#186636",
-  },
-  {
-    id: 100,
-    color: "#b57b0c",
+    color: "#ba5a57",
+    height: 95,
   },
 ];
 

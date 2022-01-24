@@ -1,54 +1,87 @@
-import ReactDOM from "react-dom";
 import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
+import { Center, OrbitControls, Plane, softShadows } from "@react-three/drei";
 import data from "../data/mockup1.js";
-import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
-import { WebGL1Renderer } from "three/src/renderers/WebGL1Renderer.js";
-import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import Header from "../components/Header";
 
-function Cube(props) {
-  const ref = useRef();
+softShadows();
+
+function Cube({ color, position, scale }) {
+  const mesh = useRef();
 
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
 
-  useFrame((state, delta) => (ref.current.rotation.x = 0));
-
   return (
     <>
       <mesh
-        {...props}
-        ref={ref}
-        scale={clicked ? 3.5 : 1}
+        position={position}
+        castShadow
+        ref={mesh}
+        scale={scale}
         onClick={(event) => click(!clicked)}
         onPointerOver={(event) => hover(true)}
         onPointerOut={(event) => hover(false)}
       >
-        <boxGeometry args={[0.1, 0.1, 0.1]} />
-        <meshStandardMaterial color={hovered ? "hotpink" : "#20639b"} />
+        <boxGeometry args={scale} />
+        <meshStandardMaterial
+          color={hovered ? "white" : color}
+          opacity={hovered ? 1 : [0.8]}
+          transparent
+        />
       </mesh>
     </>
   );
 }
 
-function Home(props) {
-  return ReactDOM.render(
-    <Canvas style={{ backgroundColor: "gray", height: "100vh" }}>
-      <PerspectiveCamera makeDefault position={[0, 5, 10]} />
-      <group position={[0, 0, -10]}>
-        <gridHelper args={[100, 100]} />
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Center position={[5, 5, 10]}>
-          {data.map((item) => (
-            <Cube key={item.id} position={[item.id - 1.5, 0, 0]} />
-          ))}
-        </Center>
-      </group>
-      <OrbitControls />
-    </Canvas>,
-    document.getElementById("root")
+const Home = () => {
+  return (
+    <>
+      <Header />
+      <Canvas
+        style={{ backgroundColor: "gray", height: "100vh" }}
+        colorManagement
+        shadowMap
+        camera={{ position: [-5, 10, 30], fov: 60 }}
+      >
+        <ambientLight intensity={0.4} />
+        <directionalLight
+          castShadow
+          position={[0, 10, -4]}
+          intensity={1.5}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
+        <pointLight position={[-10, 0, -20]} intensity={0.5} />
+        <pointLight position={[0, -30, 0]} intensity={1} />
+        <group>
+          <gridHelper args={[100, 100]} />
+          <Center position={[5, 5, 10]}>
+            {data.map((item) => (
+              <Cube
+                key={item.id}
+                position={[item.id, 10, 3]}
+                scale={[1, item.height / 40, 1]}
+                color={item.color}
+              />
+            ))}
+          </Center>
+          <Plane
+            receiveShadow
+            rotation-x={-Math.PI / 2}
+            position={[0, 0, 0]}
+            args={[100, 100, 4, 4]}
+          ></Plane>
+        </group>
+        <OrbitControls />
+      </Canvas>
+    </>
   );
-}
+};
 
 export default Home;
