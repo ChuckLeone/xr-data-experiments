@@ -3,6 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import { Center, OrbitControls, Plane, softShadows } from "@react-three/drei";
 import data from "../data/mockup1.js";
 import Header from "../components/Header";
+// import VRButton from "../components/VRButton";
+import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
 
 softShadows();
 
@@ -43,6 +45,10 @@ const Home = () => {
         colorManagement
         shadowMap
         camera={{ position: [-5, 10, 30], fov: 60 }}
+        vr
+        onCreated={({ gl }) =>
+          document.body.appendChild(VRButton.createButton(gl))
+        }
       >
         <ambientLight intensity={0.4} />
         <directionalLight
