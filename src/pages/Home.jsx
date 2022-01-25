@@ -28,7 +28,7 @@ function Cube({ color, position, scale }) {
         <boxGeometry args={scale} />
         <meshStandardMaterial
           color={hovered ? "white" : color}
-          opacity={hovered ? 1 : [0.8]}
+          opacity={hovered ? 1 : [0.75]}
           transparent
         />
       </mesh>

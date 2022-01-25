@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <h1>Data Visualization</h1>
+      <h1 style={{ marginLeft: "8px", fontWeight: 400 }}>Data Visualization</h1>
     </>
   );
 };
