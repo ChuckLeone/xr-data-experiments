@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+
+import { VRCanvas, DefaultXRControllers } from "@react-three/xr";
 import { Center, OrbitControls, Plane, softShadows } from "@react-three/drei";
 import data from "../data/mockup1.js";
 import Header from "../components/Header";
-// import VRButton from "../components/VRButton";
 import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
 
 softShadows();
@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Canvas
+      <VRCanvas
         style={{ backgroundColor: "gray", height: "100vh" }}
         colorManagement
         shadowMap
@@ -50,6 +50,7 @@ const Home = () => {
           document.body.appendChild(VRButton.createButton(gl))
         }
       >
+        <DefaultXRControllers />
         <ambientLight intensity={0.4} />
         <directionalLight
           castShadow
@@ -85,7 +86,7 @@ const Home = () => {
           ></Plane>
         </group>
         <OrbitControls />
-      </Canvas>
+      </VRCanvas>
     </>
   );
 };
