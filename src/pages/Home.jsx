@@ -1,18 +1,31 @@
 import React, { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, extend } from "@react-three/fiber";
 import { Center, OrbitControls, Plane, softShadows } from "@react-three/drei";
 import data from "../data/mockup1.js";
 import Header from "../components/Header";
-// import VRButton from "../components/VRButton";
 import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
+import { Text } from "troika-three-text";
 
 softShadows();
 
-function Cube({ color, position, scale }) {
+extend({ Text });
+
+function Cube({ color, position, scale, thisText }) {
   const mesh = useRef();
 
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
+
+  const [opts, setOpts] = useState({
+    font: "Roboto",
+    fontSize: 0.5,
+    color: "#000",
+    maxWidth: 300,
+    lineHeight: 1,
+    letterSpacing: 0,
+    textAlign: "justify",
+    materialType: "MeshPhongMaterial",
+  });
 
   return (
     <>
@@ -31,6 +44,22 @@ function Cube({ color, position, scale }) {
           opacity={hovered ? 1 : [0.75]}
           transparent
         />
+        {hovered && (
+          <text
+            position-z={1}
+            position-x={0}
+            position-y={1}
+            {...opts}
+            text={thisText}
+            font={"roboto"}
+            anchorX="center"
+            anchorY="middle"
+          >
+            {opts.materialType === "MeshPhongMaterial" ? (
+              <meshPhongMaterial attach="material" color={opts.color} />
+            ) : null}
+          </text>
+        )}
       </mesh>
     </>
   );
@@ -74,6 +103,7 @@ const Home = () => {
                 position={[item.id, 10, 3]}
                 scale={[1, item.height / 40, 1]}
                 color={item.color}
+                thisText={item.height}
               />
             ))}
           </Center>
