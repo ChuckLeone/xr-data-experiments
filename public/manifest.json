@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "3D Data Visualization",
+  "name": "Chuck Leone | ReactJS + ThreeJS + React Three Fiber",
+  "homepage_url": "http://chuckleone.com/3d/data1",
   "icons": [
     {
       "src": "favicon.ico",
