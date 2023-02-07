@@ -1,5 +1,6 @@
 {
   "name": "xr-data-experiments",
+  "homepage": "http://chuckleone.com/3d/data1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
