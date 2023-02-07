@@ -1,10 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import { Canvas, extend } from "@react-three/fiber";
-import { Center, OrbitControls, Plane, softShadows } from "@react-three/drei";
+import {
+  Center,
+  OrbitControls,
+  Plane,
+  softShadows,
+  Stage,
+} from "@react-three/drei";
 import data from "../data/mockup1.js";
 import Header from "../components/Header";
 import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
 import { Text } from "troika-three-text";
+import { Vector3 } from "three";
 
 softShadows();
 
@@ -12,7 +19,6 @@ extend({ Text });
 
 function Cube({ color, position, scale, thisText }) {
   const mesh = useRef();
-
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
 
@@ -40,8 +46,8 @@ function Cube({ color, position, scale, thisText }) {
       >
         <boxGeometry args={scale} />
         <meshStandardMaterial
-          color={hovered ? "white" : color}
-          opacity={hovered ? 1 : [0.75]}
+          color={color}
+          opacity={hovered ? 0.9 : [0.7]}
           transparent
         />
         {hovered && (
@@ -66,6 +72,8 @@ function Cube({ color, position, scale, thisText }) {
 }
 
 const Home = () => {
+  const dataSet = data.length;
+  const origin = new Vector3();
   return (
     <>
       <Header />
@@ -79,41 +87,31 @@ const Home = () => {
           document.body.appendChild(VRButton.createButton(gl))
         }
       >
-        <ambientLight intensity={0.4} />
-        <directionalLight
-          castShadow
-          position={[0, 10, -4]}
-          intensity={1.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={50}
-          shadow-camera-left={-10}
-          shadow-camera-right={10}
-          shadow-camera-top={10}
-          shadow-camera-bottom={-10}
-        />
-        <pointLight position={[-10, 0, -20]} intensity={0.5} />
-        <pointLight position={[0, -30, 0]} intensity={1} />
-        <group>
-          <gridHelper args={[100, 100]} />
-          <Center position={[5, 5, 10]}>
-            {data.map((item) => (
-              <Cube
-                key={item.id}
-                position={[item.id, 10, 3]}
-                scale={[1, item.height / 40, 1]}
-                color={item.color}
-                thisText={item.height}
-              />
-            ))}
-          </Center>
-          <Plane
-            receiveShadow
-            rotation-x={-Math.PI / 2}
-            position={[0, 0, 0]}
-            args={[100, 100, 4, 4]}
-          ></Plane>
-        </group>
+        <Suspense fallback={null}>
+          <Stage
+            contactShadowOpacity={0.001}
+            shadowBias={-0.0015}
+            intensity={1}
+            environment={null}
+          >
+            <ambientLight intensity={0.2} />
+
+            <group>
+              <Center position={[0, 15, 10]}>
+                {data.map((item) => (
+                  <Cube
+                    key={item.id}
+                    position={[item.id, origin.y - 5, 3]}
+                    scale={[1, item.height / 30, 1]}
+                    color={item.color}
+                    thisText={item.height}
+                  />
+                ))}
+              </Center>
+              <gridHelper args={[dataSet, dataSet, 0xff0000, 0x555555]} />
+            </group>
+          </Stage>
+        </Suspense>
         <OrbitControls />
       </Canvas>
     </>

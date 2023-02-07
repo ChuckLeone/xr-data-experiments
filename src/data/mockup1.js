@@ -124,56 +124,6 @@ const data = [
     color: "#4c708b",
     height: 14,
   },
-  // {
-  //   id: 26,
-  //   color: "#b72885",
-  //   height: 75,
-  // },
-  // {
-  //   id: 27,
-  //   color: "#6a1bc9",
-  //   height: 18,
-  // },
-  // {
-  //   id: 28,
-  //   color: "#f98d16",
-  //   height: 88,
-  // },
-  // {
-  //   id: 29,
-  //   color: "#e25e15",
-  //   height: 44,
-  // },
-  // {
-  //   id: 30,
-  //   color: "#5f3b4e",
-  //   height: 55,
-  // },
-  // {
-  //   id: 31,
-  //   color: "#3cb10a",
-  //   height: 72,
-  // },
-  // {
-  //   id: 32,
-  //   color: "#72f5dc",
-  //   height: 34,
-  // },
-  // {
-  //   id: 33,
-  //   color: "#3576b1",
-  //   height: 80,
-  // },
-  // {
-  //   id: 34,
-  //   color: "#b04a5a",
-  //   height: 73,
-  // },
-  // {
-  //   id: 35,
-  //   color: "#ba5a57",
-  //   height: 95,
-  // },
 ];
 
 export default data;
